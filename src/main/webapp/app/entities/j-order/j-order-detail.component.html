@@ -1,0 +1,37 @@
+
+<div *ngIf="jOrder">
+    <h2><span jhiTranslate="jhipsterDemoApp.jOrder.detail.title">J Order</span> {{jOrder.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="jhipsterDemoApp.jOrder.orderNum">Order Num</span></dt>
+        <dd>
+            <span>{{jOrder.orderNum}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterDemoApp.jOrder.orderStatus">Order Status</span></dt>
+        <dd>
+            <span>{{jOrder.orderStatus}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterDemoApp.jOrder.orderDate">Order Date</span></dt>
+        <dd>
+            <span>{{jOrder.orderDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterDemoApp.jOrder.orderDesc">Order Desc</span></dt>
+        <dd>
+            <span>{{jOrder.orderDesc}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'j-order/'+ jOrder.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

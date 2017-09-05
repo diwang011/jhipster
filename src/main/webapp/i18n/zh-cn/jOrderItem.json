@@ -1,0 +1,24 @@
+{
+    "jhipsterDemoApp": {
+        "jOrderItem" : {
+            "home": {
+                "title": "J Order Items",
+                "createLabel": "Create a new J Order Item",
+                "createOrEditLabel": "Create or edit a J Order Item"
+            },
+            "created": "A new J Order Item is created with identifier {{ param }}",
+            "updated": "A J Order Item is updated with identifier {{ param }}",
+            "deleted": "A J Order Item is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete J Order Item {{ id }}?"
+            },
+            "detail": {
+                "title": "J Order Item"
+            },
+            "sku": "Sku",
+            "qty": "Qty",
+            "itemDesc": "Item Desc",
+            "order": "Order"
+        }
+    }
+}
