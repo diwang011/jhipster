@@ -1,0 +1,74 @@
+<div>
+    <h2>
+        <span jhiTranslate="jhipsterDemoApp.jOrderItem.home.title">J Order Items</span>
+        <button class="btn btn-primary float-right jh-create-entity create-j-order-item" [routerLink]="['/', { outlets: { popup: ['j-order-item-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="jhipsterDemoApp.jOrderItem.home.createLabel">
+            Create new J Order Item
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="jOrderItems">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="sku"><span jhiTranslate="jhipsterDemoApp.jOrderItem.sku">Sku</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="qty"><span jhiTranslate="jhipsterDemoApp.jOrderItem.qty">Qty</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="itemDesc"><span jhiTranslate="jhipsterDemoApp.jOrderItem.itemDesc">Item Desc</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="order.id"><span jhiTranslate="jhipsterDemoApp.jOrderItem.order">Order</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let jOrderItem of jOrderItems ;trackBy: trackId">
+                <td><a [routerLink]="['../j-order-item', jOrderItem.id ]">{{jOrderItem.id}}</a></td>
+                <td>{{jOrderItem.sku}}</td>
+                <td>{{jOrderItem.qty}}</td>
+                <td>{{jOrderItem.itemDesc}}</td>
+                <td>
+                    <div *ngIf="jOrderItem.order">
+                        <a [routerLink]="['../j-order', jOrderItem.order?.id ]" >{{jOrderItem.order?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../j-order-item', jOrderItem.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'j-order-item/'+ jOrderItem.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'j-order-item/'+ jOrderItem.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <div *ngIf="jOrderItems && jOrderItems.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [(page)]="page" (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>
