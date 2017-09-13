@@ -1,0 +1,39 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.next",
+      "nativeLanguage": "zh-cn"
+    },
+    "jhipsterVersion": "4.7.0",
+    "baseName": "app1",
+    "packageName": "com.next",
+    "packageFolder": "com/next",
+    "serverPort": "3002",
+    "authenticationType": "uaa",
+    "uaaBaseName": "uuaService",
+    "hibernateCache": "infinispan",
+    "clusteredHttpSession": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "consul",
+    "buildTool": "maven",
+    "enableSocialSignIn": false,
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "e0fe917df4eccbb17ca521fe80929a0a9b1f845a",
+    "enableTranslation": true,
+    "applicationType": "microservice",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "skipClient": true,
+    "skipUserManagement": true,
+    "nativeLanguage": "zh-cn",
+    "languages": [
+      "zh-cn"
+    ],
+    "clientPackageManager": "yarn"
+  }
+}

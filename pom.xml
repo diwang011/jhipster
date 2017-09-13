@@ -9,5 +9,8 @@
   	<module>jhipster-clusters/app</module>
   	<module>jhipster-clusters/gateway</module>
   	<module>jhipster-demo</module>
+  	<module>jhipster-clusters/uuaService</module>
+  	<module>jhipster-clusters/app1</module>
+  	<module>jhipster-clusters/gateway1</module>
   </modules>
 </project>
